@@ -1,6 +1,8 @@
+import datetime
 from django.db import models
 from lockable_resource.models import LockableResource
 from datetime import timedelta
+from django.utils.timezone import utc
 
 
 class ResourceExpiryPolicy(models.Model):
@@ -19,7 +21,7 @@ class ResourceExpiryPolicy(models.Model):
     @property
     def is_expired(self):
         if self.lockable_resource.is_locked:
-            return self.expiry_date < self.lockable_resource.locked_time
+            return self.expiry_date < datetime.datetime.utcnow().replace(tzinfo=utc)
 
     def __str__(self):
         return f"{self.name}"

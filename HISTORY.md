@@ -8,3 +8,7 @@ Initial build
 
 Adding templates and fixing the logic of expiry
 
+## [0.0.3] - 2022-07-19
+
+Design the final functionalities of expiry addon
+

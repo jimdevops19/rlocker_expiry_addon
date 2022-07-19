@@ -1,6 +1,8 @@
+from datetime import timedelta
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from expiry_addon.models import ResourceExpiryPolicy
+from lockable_resource.models import LockableResource
 
 
 @receiver(post_save, sender=ResourceExpiryPolicy)
@@ -34,3 +36,35 @@ def generate_field_values_if_empty(sender, instance, created, **kwargs):
 
     if not created:
         pass
+
+
+@receiver(post_save, sender=LockableResource)
+def do_actions_after_locked_resource(sender, instance, created, **kwargs):
+    """
+    post_save is being called everytime the object is being saved!
+    REMEMBER: The save method could be called more than once for an object.
+    Why ? Because each modification on a specific object happens only AFTER the save method
+    So the post_save signal is triggered after every modification!
+    """
+    if created:
+        return
+    if not created:
+        # If instance has locked time, it means a resource is just locked and locked time is not None
+        if instance.resourceexpirypolicy:
+            if (
+                instance.locked_time
+                and not instance.resourceexpirypolicy.current_expiry_date
+            ):
+                current_expiry_date = instance.locked_time
+                current_expiry_date += timedelta(
+                    hours=instance.resourceexpirypolicy.expiry_hour
+                )
+                instance.resourceexpirypolicy.current_expiry_date = current_expiry_date
+                instance.resourceexpirypolicy.save()
+                print(
+                    f"{instance.name} will expired in {instance.resourceexpirypolicy.current_expiry_date}"
+                )
+
+            if not instance.locked_time:
+                instance.resourceexpirypolicy.current_expiry_date = None
+                instance.resourceexpirypolicy.save()

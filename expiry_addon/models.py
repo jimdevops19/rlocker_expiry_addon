@@ -1,7 +1,6 @@
 import datetime
 from django.db import models
 from lockable_resource.models import LockableResource
-from datetime import timedelta
 from django.utils.timezone import utc
 
 
@@ -9,19 +8,14 @@ class ResourceExpiryPolicy(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     lockable_resource = models.OneToOneField(LockableResource, on_delete=models.PROTECT)
     expiry_hour = models.IntegerField(default=0)
-
-
-    @property
-    def expiry_date(self):
-        if self.lockable_resource.is_locked:
-            final_expiry_date = self.lockable_resource.locked_time
-            final_expiry_date += timedelta(hours=self.expiry_hour)
-            return final_expiry_date
+    current_expiry_date = models.DateTimeField(null=True, default=None, blank=True)
 
     @property
     def is_expired(self):
-        if self.lockable_resource.is_locked:
-            return self.expiry_date < datetime.datetime.utcnow().replace(tzinfo=utc)
+        if self.lockable_resource.is_locked and self.current_expiry_date:
+            return self.current_expiry_date < datetime.datetime.utcnow().replace(
+                tzinfo=utc
+            )
 
     def __str__(self):
         return f"{self.name}"

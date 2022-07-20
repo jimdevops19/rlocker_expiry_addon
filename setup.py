@@ -8,7 +8,7 @@ with open("HISTORY.md") as history_file:
 
 setup_args = dict(
     name="rlocker_expiryaddon",
-    version="0.0.3",
+    version="0.0.4",
     description="A Plugin for Resource Locker Project to implement expiry logic",
     long_description_content_type="text/markdown",
     long_description=README + "\n\n" + HISTORY,

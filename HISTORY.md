@@ -12,3 +12,8 @@ Adding templates and fixing the logic of expiry
 
 Design the final functionalities of expiry addon
 
+
+## [0.0.4] - 2022-07-20
+
+Last code collection - Add templates to MANIFEST.in
+

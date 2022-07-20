@@ -12,9 +12,11 @@
              <form class="form-inline" role="form" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                  <label for="expiry-date-{{ lockable_resource.id }}">Expiry Date</label>
-                  <input type="datetime-local" class="form-control center-block" id="expiry-date-{{ lockable_resource.id }}"
-                          required="true" name="expiry-hour-{{ lockable_resource.id }}" value="{{ lockable_resource.resourceexpirypolicy.expiry_date }}">
+                    <label for="add-expiry-hours-{{ lockable_resource.id }}">Add temporary expiry time by hours</label>
+                    <input type="number" class="form-control center-block"
+                           id="add-expiry-hours-{{ lockable_resource.id }}"
+                           required="true" name="add-expiry-hours-{{ lockable_resource.id }}"
+                           min="-8820" max="72" value="24">
                 </div>
                 <input type="hidden" id='id' name="id" value="{{ lockable_resource.id }}"/>
                 <input type="hidden" id='action' name="action" value="modify_expiry_addon"/>

@@ -17,3 +17,6 @@ Design the final functionalities of expiry addon
 
 Last code collection - Add templates to MANIFEST.in
 
+## [0.0.5] - 2022-07-20
+
+Recursively include all the files inside the templates directory

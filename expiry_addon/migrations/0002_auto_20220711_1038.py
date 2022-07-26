@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expiry_addon', '0001_initial'),
+        ("expiry_addon", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='resourceexpirypolicy',
-            options={'verbose_name_plural': 'Resource Expiry Policies'},
+            name="resourceexpirypolicy",
+            options={"verbose_name_plural": "Resource Expiry Policies"},
         ),
         migrations.AlterField(
-            model_name='resourceexpirypolicy',
-            name='name',
+            model_name="resourceexpirypolicy",
+            name="name",
             field=models.CharField(blank=True, max_length=64, null=True),
         ),
     ]

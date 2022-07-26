@@ -21,13 +21,9 @@ setup_args = dict(
     download_url="https://pypi.org/project/rlocker_expiry_addon/",
 )
 
-install_requires = [
+install_requires = []
 
-]
-
-entry_points = {
-
-}
+entry_points = {}
 
 if __name__ == "__main__":
     setup(**setup_args, install_requires=install_requires, entry_points=entry_points)

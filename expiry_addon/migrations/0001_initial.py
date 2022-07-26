@@ -9,17 +9,31 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('lockable_resource', '0008_lockableresource_locked_time'),
+        ("lockable_resource", "0008_lockableresource_locked_time"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ResourceExpiryPolicy',
+            name="ResourceExpiryPolicy",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=64)),
-                ('expiry_hour', models.IntegerField(default=0)),
-                ('lockable_resource', models.OneToOneField(on_delete=django.db.models.deletion.PROTECT, to='lockable_resource.lockableresource')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=64)),
+                ("expiry_hour", models.IntegerField(default=0)),
+                (
+                    "lockable_resource",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="lockable_resource.lockableresource",
+                    ),
+                ),
             ],
         ),
     ]

@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('expiry_addon', '0002_auto_20220711_1038'),
+        ("expiry_addon", "0002_auto_20220711_1038"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='resourceexpirypolicy',
-            name='current_expiry_date',
+            model_name="resourceexpirypolicy",
+            name="current_expiry_date",
             field=models.DateTimeField(blank=True, default=None, null=True),
         ),
     ]

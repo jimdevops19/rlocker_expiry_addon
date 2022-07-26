@@ -7,7 +7,6 @@ from lockable_resource.action_manager import LRActionObjectsHandler, SUPPORTED_A
 from expiry_addon.startup import lr_action_utils
 from expiry_addon.apps import ExpiryAddonConfig
 
-
 def main():
     print(f"The Addon {ExpiryAddonConfig.name} is recognized!")
     SUPPORTED_ACTIONS.extend(lr_action_utils.EXTENDED_SUPPORTED_ACTIONS)

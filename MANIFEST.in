@@ -1,2 +1,2 @@
 include HISTORY.md
-recursive-include templates *.html schema.js
+recursive-include expiry_addon/templates *.html schema.js

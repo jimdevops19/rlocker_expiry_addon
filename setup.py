@@ -13,7 +13,7 @@ setup_args = dict(
     long_description_content_type="text/markdown",
     long_description=README + "\n\n" + HISTORY,
     license="MIT",
-    packages=find_packages(),
+    packages=find_packages(include=['expiry_addon/templates/']),
     author="Jim Erginbash",
     author_email="jimshapedcoding@gmail.com",
     keywords=["Rlocker", "rlocker", "ResourceLocker", "Python 3", "Resource Locker"],

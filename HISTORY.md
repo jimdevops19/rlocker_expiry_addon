@@ -25,3 +25,6 @@ Recursively include all the files inside the templates directory
 
 Changes for adding the addon data to the API of rlocker
 
+## [0.0.7] - 2022-31-07
+
+Changed the directory of templates from /templates to /expiry_addon_/templates/expiry_addon/*

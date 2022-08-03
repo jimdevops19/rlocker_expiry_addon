@@ -6,10 +6,11 @@ import expiry_addon.constants as const
 from lockable_resource.action_manager import LRActionObjectsHandler, SUPPORTED_ACTIONS
 from expiry_addon.startup import lr_action_utils
 from expiry_addon.apps import ExpiryAddonConfig
-
+from django.core import management
 
 def main():
     print(f"The Addon {ExpiryAddonConfig.name} is recognized!")
+    management.call_command("migrate", ExpiryAddonConfig.name)
     SUPPORTED_ACTIONS.extend(lr_action_utils.EXTENDED_SUPPORTED_ACTIONS)
     a = LRActionObjectsHandler()
     a.add_supported_action_object_pair(

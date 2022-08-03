@@ -33,3 +33,9 @@ Changed the directory of templates from /templates to /expiry_addon_/templates/e
 
 Configuring for grabbing the templates to the package
 
+## [0.1.1] - 2022-03-08
+
+Allowing auto migrate when the app loads
+
+
+

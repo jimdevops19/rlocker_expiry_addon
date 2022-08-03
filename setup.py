@@ -8,12 +8,13 @@ with open("HISTORY.md") as history_file:
 
 setup_args = dict(
     name="rlocker_expiryaddon",
-    version="0.0.7",
+    version="0.1.0",
     description="A Plugin for Resource Locker Project to implement expiry logic",
     long_description_content_type="text/markdown",
     long_description=README + "\n\n" + HISTORY,
     license="MIT",
-    packages=find_packages(include=['expiry_addon/templates/']),
+    packages=find_packages(),
+    include_package_data=True,
     author="Jim Erginbash",
     author_email="jimshapedcoding@gmail.com",
     keywords=["Rlocker", "rlocker", "ResourceLocker", "Python 3", "Resource Locker"],

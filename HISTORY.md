@@ -28,3 +28,8 @@ Changes for adding the addon data to the API of rlocker
 ## [0.0.7] - 2022-31-07
 
 Changed the directory of templates from /templates to /expiry_addon_/templates/expiry_addon/*
+
+## [0.1.0] - 2022-03-08
+
+Configuring for grabbing the templates to the package
+

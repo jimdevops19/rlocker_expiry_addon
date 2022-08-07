@@ -37,5 +37,6 @@ Configuring for grabbing the templates to the package
 
 Allowing auto migrate when the app loads
 
+## [0.1.2] - 2022-07-08
 
-
+Fix LockableResource.resourceexpirypolicy attribute not exist

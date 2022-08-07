@@ -50,7 +50,8 @@ def do_actions_after_locked_resource(sender, instance, created, **kwargs):
         return
     if not created:
         # If instance has locked time, it means a resource is just locked and locked time is not None
-        if instance.resourceexpirypolicy:
+        # Can't use here attribute reference, using hasattr instead
+        if hasattr(instance, "resourceexpirypolicy"):
             if (
                 instance.locked_time
                 and not instance.resourceexpirypolicy.current_expiry_date
